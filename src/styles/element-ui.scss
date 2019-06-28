@@ -1,0 +1,298 @@
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.cell {
+  .el-tag {
+    margin-right: 0px;
+  }
+}
+
+.small-padding {
+  .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.fixed-width {
+  .el-button--mini {
+    padding: 7px 10px;
+    width: 60px;
+  }
+}
+
+.status-col {
+  .cell {
+    padding: 0 10px;
+    text-align: center;
+
+    .el-tag {
+      margin-right: 0px;
+    }
+  }
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  border-radius: 8px;
+  min-width: 780px;
+
+  .el-dialog__title {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  .el-dialog__header {
+    background: #FF6D60;
+    border-radius: 8px 8px 0 0;
+    padding: 15px 20px;
+  }
+
+  .el-dialog__body {
+    padding: 0;
+
+    .el-form {
+      .el-form-item .el-form-item--medium {
+        .el-form-item__content {
+          .el-select .el-select--medium {
+            width: 360px !important;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .el-dialog__close {
+    color: #fff;
+
+    &:hover {
+      color: #606266
+    }
+  }
+
+  .el-dialog__footer {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+
+.el-input__inner:focus {
+  outline: none;
+  border-color: rgb(220, 223, 230)
+}
+
+.el-checkbox-group {
+  .el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: #FF6D60;
+    border-color: #fff;
+  }
+
+  .el-checkbox__input.is-checked+.el-checkbox__label {
+    color: #000;
+  }
+
+  .el-checkbox__input.is-focus .el-checkbox__inner {
+    border-color: rgb(220, 223, 230)
+  }
+
+  .el-checkbox__inner:hover {
+    border-color: rgb(220, 223, 230)
+  }
+}
+
+.el-radio-group {
+  .el-radio__input.is-checked .el-radio__inner {
+    background-color: #FF6D60;
+    border-color: #fff;
+  }
+
+  .el-radio__input,
+  .is-checked+.el-radio__label {
+    color: #000;
+  }
+}
+
+.el-form-item--medium .el-form-item__label {
+  line-height: 30px;
+}
+
+.el-pagination,
+.is-background {
+  .number {
+    &:hover {
+      color: #ff4949 !important;
+    }
+  }
+
+  .active {
+    background: #ff4949 !important;
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-success .el-input__inner:focus,
+.el-form-item.is-success .el-textarea__inner,
+.el-form-item.is-success .el-textarea__inner:focus {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-select .el-input__inner:focus {
+  border-color: rgb(220, 223, 230);
+}
+
+textarea.el-textarea__inner:focus {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-range-editor.is-active:hover {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-radio__inner:hover {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-range-editor.is-active {
+  border-color: rgb(220, 223, 230);
+}
+
+.el-date-table td.start-date span,
+.el-date-table td.end-date span {
+  background-color: #ff4949;
+}
+
+.el-date-table td.in-range div:hover {
+  background-color: #e77575da;
+}
+
+.el-date-table td.in-range div {
+  background-color: #e77575da;
+}
+
+.el-select-dropdown__item,
+.selected {
+  &:hover {
+    color: #ff4949
+  }
+}
+
+.el-select-dropdown__item.selected {
+  color: #ff4949
+}
+
+.el-date-table td.current:not(.disabled) span {
+  color: #FFFFFF;
+  background-color: #ff4949;
+}
+
+.el-date-table td.today span {
+  color: #ff4949;
+  font-weight: bold;
+}
+
+.el-date-table td.available:hover {
+  color: #ff4949;
+}
+
+.el-date-picker__header-label:hover {
+  color: #ff4949;
+}
+
+.el-year-table td .cell:hover {
+  color: #ff4949;
+}
+
+.el-year-table td.today .cell {
+  color: #ff4949;
+  font-weight: bold;
+}
+
+.el-year-table td.today .cell {
+  color: #ff4949;
+  font-weight: bold;
+}
+
+.el-month-table td .cell:hover {
+  color: #ff4949;
+}
+
+.el-month-table td.today .cell {
+  color: #ff4949;
+  font-weight: bold;
+}
+
+.el-table .el-table--fit .el-table--border .el-table--scrollable-x .el-table--enable-row-transition .el-table--medium {
+  .el-table__header-wrapper {
+    .el-table__header {
+      .has-gutter {
+        .el-table_1_column_1 .is-leaf {
+          text-align: center !important;
+        }
+      }
+    }
+  }
+}
+
+.el-table th {
+  text-align: center !important;
+}
+
+.el-table td {
+  text-align: center !important;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+// fix date-picker ui bug in filter-item
+.el-range-editor.el-input__inner {
+  display: inline-flex !important;
+}

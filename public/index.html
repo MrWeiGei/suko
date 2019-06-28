@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d92541bdf26ce86b971987e0a765fe83 ">
+  </script>
+  <script src="//webapi.amap.com/ui/1.0/main.js"></script>
+  <title><%= webpackConfig.name %></title>
+</head>
+
+<body>
+  <!-- import cdn js -->
+  <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%=js%>"></script>
+  <% } %>
+  <div id="app"></div>
+</body>
+
+</html>

@@ -1,13 +1,13 @@
 <template>
   <div class="contnet">
     <el-row style="overflow: hidden;background: #ffffff;border-radius: 8px;">
-      <unified-style title="菜单管理"/>
+      <unified-style title="菜单管理" />
       <el-col style="margin-top:25px;margin-left:38px">
         <el-button type="danger" icon="el-icon-plus" @click="addone">增加</el-button>
       </el-col>
       <el-col style="margin-top:35px;margin-left:38px">
         <my-table
-          style="width:97%"
+          style="width:90%"
           class="table"
           :table-data="tableData"
           :table-head="tableHead"
@@ -17,6 +17,7 @@
           :haschildren="true"
           :light="light"
           :load="loads"
+          @sizeChange="sizeChange"
           @change="change"
           @edit="edit"
           @del="del"
@@ -27,23 +28,23 @@
     </el-row>
 
     <!-- 弹出框 -->
-    <el-dialog title="信 息" :visible.sync="dialogFormVisible">
+    <el-dialog title="信 息" :visible.sync="dialogFormVisible" class="dialog">
       <el-row>
         <el-col :offset="3" :span="18" style="margin-top:30px">
           <el-form :model="form" :rules="rules" ref="form">
             <el-form-item label="菜单名称:" label-width="90px" prop="menuName">
-              <el-input v-model="form.menuName" autocomplete="off"/>
+              <el-input v-model="form.menuName" autocomplete="off" />
             </el-form-item>
             <el-form-item label="父集:" label-width="90px" v-if="!id" prop="parentId">
               <el-select v-model="form.parentId" placeholder="请选择" class="select">
-                <el-option label="主菜单" value="0"/>
+                <el-option label="主菜单" value="0" />
               </el-select>
             </el-form-item>
             <el-form-item label="路由地址:" label-width="90px" prop="url">
-              <el-input v-model="form.router" autocomplete="off"/>
+              <el-input v-model="form.router" autocomplete="off" />
             </el-form-item>
             <el-form-item label="请求地址:" label-width="90px" prop="url">
-              <el-input v-model="form.url" autocomplete="off"/>
+              <el-input v-model="form.url" autocomplete="off" />
             </el-form-item>
             <el-form-item label="菜单类型:" label-width="90px" prop="menuType">
               <el-select v-model="form.menuType" placeholder="请选择" class="select">
@@ -57,12 +58,12 @@
             </el-form-item>
             <el-form-item label="菜单状态:" label-width="90px" prop="visible">
               <el-select v-model="form.visible" placeholder="请选择" class="select">
-                <el-option label="显示" value="1"/>
-                <el-option label="隐藏" value="0"/>
+                <el-option label="显示" value="1" />
+                <el-option label="隐藏" value="0" />
               </el-select>
             </el-form-item>
             <el-form-item label="菜单图标:" label-width="90px" prop="icon">
-              <el-input v-model="form.icon" autocomplete="off"/>
+              <el-input v-model="form.icon" autocomplete="off" />
             </el-form-item>
           </el-form>
         </el-col>
@@ -110,7 +111,7 @@ export default {
           label: "按钮"
         }
       ],
-      pageSize: 8,
+      pageSize: 10,
       pageNum: 1,
       total: 0,
       dialogFormVisible: false,
@@ -228,6 +229,7 @@ export default {
       this.form.id = e.id;
     },
     // 表单删除按钮
+
     del(e) {
       this.$confirm("此操作将永久删除该信息, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -251,6 +253,11 @@ export default {
             message: "已取消删除"
           });
         });
+    },
+    sizeChange(e) {
+      this.pageSize = e.pageSize;
+      this.pageNum = e.pageNum;
+      this.getList();
     },
     // 分页
     change(e) {
@@ -389,7 +396,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
-
+  .dialog {
+    min-width: 1300px !important;
+    max-width: 1500px !important;
+    margin: 0 auto;
+  }
   .dialog-footer {
     margin-bottom: 20px;
   }

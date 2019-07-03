@@ -28,11 +28,11 @@ module.exports = {
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       "/shuyike": {
-        target: `http://192.168.1.18:8180`,
+        target: `http://192.168.1.8:8180`,
         changeOrigin: true,
       },
       "/suko": {
-        target: `http://192.168.1.25:8080`,
+        target: `http://192.168.1.10:8080`,
         changeOrigin: true,
       },
       "/ma": {

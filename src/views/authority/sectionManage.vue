@@ -1,7 +1,7 @@
 <template>
   <div class="contnet">
     <el-row style="overflow: hidden;background: #ffffff;border-radius: 8px;">
-      <unified-style title="部门管理"/>
+      <unified-style title="部门管理" />
       <el-col style="margin-top:25px;margin-left:38px">
         <el-button type="danger" icon="el-icon-plus" @click="addone">增加</el-button>
       </el-col>
@@ -15,6 +15,7 @@
           :total="total"
           :load="load"
           @change="change"
+          @sizeChange="sizeChange"
           @edit="edit"
           @del="del"
         />
@@ -22,15 +23,15 @@
     </el-row>
 
     <!-- 弹出框 -->
-    <el-dialog title="信 息" :visible.sync="dialogFormVisible">
+    <el-dialog title="信 息" :visible.sync="dialogFormVisible" class="dialog">
       <el-row>
         <el-col :offset="3" :span="18" style="margin-top:30px">
           <el-form :model="form" :rules="rules" ref="form">
             <el-form-item label="部门名称:" label-width="90px" prop="deptName">
-              <el-input v-model="form.deptName" autocomplete="off"/>
+              <el-input v-model="form.deptName" autocomplete="off" />
             </el-form-item>
             <el-form-item label="部门描述:" label-width="90px" prop="description">
-              <el-input v-model="form.description" autocomplete="off"/>
+              <el-input v-model="form.description" autocomplete="off" />
             </el-form-item>
           </el-form>
         </el-col>
@@ -61,7 +62,7 @@ export default {
     return {
       button: "提交",
       load: true,
-      pageSize: 8,
+      pageSize: 10,
       pageNum: 1,
       total: 0,
       dialogFormVisible: false,
@@ -122,6 +123,11 @@ export default {
       }
       this.changeFlag = false;
       this.button = "提交";
+    },
+    sizeChange(e) {
+      this.pageSize = e.pageSize;
+      this.pageNum = e.pageNum;
+      this.getList();
     },
     edit(e) {
       this.dialogFormVisible = true;
@@ -205,7 +211,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
-
+  .dialog {
+    min-width: 1300px !important;
+    max-width: 1500px !important;
+    margin: 0 auto;
+  }
   .dialog-footer {
     margin-bottom: 20px;
   }

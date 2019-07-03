@@ -14,6 +14,7 @@
           :pageSize="pageSize"
           :total="total"
           :load="load"
+          @sizeChange="sizeChange"
           @change="change"
           @edit="edit"
           @del="del"
@@ -22,7 +23,7 @@
     </el-row>
 
     <!-- 弹出框 -->
-    <el-dialog title="信 息" :visible.sync="dialogFormVisible">
+    <el-dialog title="信 息" :visible.sync="dialogFormVisible" class="dialog">
       <el-row>
         <el-col :offset="3" :span="18" style="margin-top:30px">
           <el-form :model="form" :rules="rules" ref="form">
@@ -80,7 +81,7 @@ export default {
     return {
       button: "添加",
       load: true,
-      pageSize: 8,
+      pageSize: 10,
       pageNum: 1,
       optionArr: [],
       total: 0,
@@ -164,6 +165,11 @@ export default {
       if (!this.$refs) {
         this.$refs["form"].resetFields();
       }
+    },
+    sizeChange(e) {
+      this.pageSize = e.pageSize;
+      this.pageNum = e.pageNum;
+      this.getList();
     },
     edit(e) {
       this.dialogFormVisible = true;
@@ -285,7 +291,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
-
+  .dialog {
+    min-width: 1300px !important;
+    max-width: 1500px !important;
+    margin: 0 auto;
+  }
   .dialog-footer {
     margin-bottom: 20px;
   }

@@ -94,6 +94,7 @@
                 value-format="yyyy-MM-dd HH:mm:ss"
                 type="datetime"
                 placeholder="开始日期"
+                class="info"
               ></el-date-picker>
             </el-form-item>
           </el-col>
@@ -104,12 +105,13 @@
                 value-format="yyyy-MM-dd HH:mm:ss"
                 type="datetime"
                 placeholder="结束日期"
+                class="info"
               ></el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="供应类型" prop="vendorClass">
-              <el-select v-model="info.vendorClass">
+              <el-select v-model="info.vendorClass" class="info">
                 <el-option label="个人" value="0"></el-option>
                 <el-option label="供应商" value="1"></el-option>
               </el-select>
@@ -571,6 +573,21 @@ export default {
       if (!this.$refs) {
         this.$refs["info"].resetFields();
       }
+      this.info = {
+        itemType: "0", //项目类目
+        remark: "11", //项目详细说明
+        contactName: "111",
+        contactPhone: "13111111111",
+        basePrice: "11",
+        realPrice: "11",
+        activityPrice: "11",
+        citys: [],
+        city: "",
+        startTime: "",
+        endTime: "",
+        pic: [],
+        vendorClass: ""
+      };
       this.pic = [];
     },
     getCity(city) {
@@ -664,6 +681,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
+  .dialog {
+    min-width: 1500px !important;
+    max-width: 1600px !important;
+    margin: 0 auto;
+  }
 
   .row {
     padding: 15px 20px;

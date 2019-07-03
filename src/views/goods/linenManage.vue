@@ -555,6 +555,19 @@ export default {
       if (!this.$refs) {
         this.$refs["info"].resetFields();
       }
+      this.info = {
+        goodsItem: "0", //商品种类
+        goodsName: "",
+        remark: "11", //备注
+        specification: "111", //规格
+        onePrice: "11", //单价
+        sumPrice: "11", //总价
+        activePrice: "11", //活动价格
+        citys: [],
+        vendorCity: "",
+        pic: [],
+        quantity: "1"
+      };
       this.pic = [];
     },
     // 获取城市的方法
@@ -654,7 +667,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
-
+  .dialog {
+    min-width: 1500px !important;
+    max-width: 1600px !important;
+    margin: 0 auto;
+  }
   .row {
     padding: 15px 20px;
 

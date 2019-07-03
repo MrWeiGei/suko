@@ -15,7 +15,7 @@ import {
 
 // 创建一个axios实例
 const service = axios.create({
-  baseURL: '/ma', // url = base url + request url
+  baseURL: '/suko', // url = base url + request url
   withCredentials: true, // 当跨域请求时发送cookie
   timeout: 15000 // 请求超时时间
 })

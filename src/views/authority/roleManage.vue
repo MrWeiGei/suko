@@ -1,7 +1,7 @@
 <template>
   <div class="contnet">
     <el-row style="overflow: hidden;background: #ffffff;border-radius: 8px;">
-      <unified-style title="角色管理"/>
+      <unified-style title="角色管理" />
       <el-col style="margin-top:25px;margin-left:38px">
         <el-button type="danger" icon="el-icon-plus" @click="addone">增加</el-button>
       </el-col>
@@ -14,6 +14,7 @@
           :page-size="pageSize"
           :total="total"
           :load="load"
+          @sizeChange="sizeChange"
           @change="change"
           @edit="edit"
           @del="del"
@@ -22,12 +23,12 @@
     </el-row>
 
     <!-- 弹出框 -->
-    <el-dialog title="信 息" :visible.sync="dialogFormVisible">
+    <el-dialog title="信 息" :visible.sync="dialogFormVisible" class="dialog">
       <el-row>
         <el-col :offset="3" :span="18" style="margin-top:30px">
           <el-form :model="form" :rules="rules" ref="form">
             <el-form-item label="用户名:" label-width="100px" prop="roleName">
-              <el-input v-model="form.roleName" autocomplete="off"/>
+              <el-input v-model="form.roleName" autocomplete="off" />
             </el-form-item>
             <el-form-item label="所在权限组:" label-width="100px">
               <el-select v-model="deptId" class="select">
@@ -40,7 +41,7 @@
               </el-select>
             </el-form-item>
             <el-form-item label="描述:" label-width="100px">
-              <el-input v-model="form.remark" autocomplete="off"/>
+              <el-input v-model="form.remark" autocomplete="off" />
             </el-form-item>
             <el-form-item label="选择权限:" label-width="100px">
               <el-tree
@@ -79,7 +80,7 @@ export default {
     return {
       button: "提交",
       load: true,
-      pageSize: 8,
+      pageSize: 10,
       pageNum: 1,
       total: 100,
       dialogFormVisible: false,
@@ -156,6 +157,11 @@ export default {
       }
       this.changeFlag = false;
       this.button = "提交";
+    },
+    sizeChange(e) {
+      this.pageSize = e.pageSize;
+      this.pageNum = e.pageNum;
+      this.getList();
     },
     edit(e) {
       this.dialogFormVisible = true;
@@ -275,7 +281,11 @@ export default {
 .contnet {
   padding: 10px;
   background: #e7e7e7;
-
+  .dialog {
+    min-width: 1300px !important;
+    max-width: 1500px !important;
+    margin: 0 auto;
+  }
   .dialog-footer {
     margin-bottom: 20px;
   }

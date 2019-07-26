@@ -25,6 +25,7 @@
           @sizeChange="sizeChange"
           @change="change"
           @search="search"
+          @edit="edit"
           @check="check"
           @select="select"
         ></my-table>
@@ -107,18 +108,15 @@ export default {
       makeData: [
         {
           type: "search",
-          name: "查看",
-          status: "0"
+          name: "查看"
         },
         {
           type: "check",
-          name: "审核",
-          status: "1"
+          name: "审核"
         },
         {
-          type: "makeCheck",
-          name: "已审核",
-          status: "2"
+          type: "edit",
+          name: "编辑"
         }
       ],
       tableHead: [
@@ -282,6 +280,9 @@ export default {
     },
     select(e) {
       this.selectData = e;
+    },
+    edit(e) {
+      console.log(e);
     }
   }
 };

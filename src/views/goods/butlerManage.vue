@@ -218,12 +218,12 @@ export default {
       },
       info: {
         itemType: "0", //项目类目
-        remark: "11", //项目详细说明
-        contactName: "111",
-        contactPhone: "13111111111",
-        basePrice: "11",
-        realPrice: "11",
-        activityPrice: "11",
+        remark: "", //项目详细说明
+        contactName: "",
+        contactPhone: "",
+        basePrice: "",
+        realPrice: "",
+        activityPrice: "",
         citys: [],
         city: "",
         startTime: "",
@@ -575,12 +575,12 @@ export default {
       }
       this.info = {
         itemType: "0", //项目类目
-        remark: "11", //项目详细说明
-        contactName: "111",
-        contactPhone: "13111111111",
-        basePrice: "11",
-        realPrice: "11",
-        activityPrice: "11",
+        remark: "", //项目详细说明
+        contactName: "",
+        contactPhone: "",
+        basePrice: "",
+        realPrice: "",
+        activityPrice: "",
         citys: [],
         city: "",
         startTime: "",

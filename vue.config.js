@@ -19,7 +19,6 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
-    open: true,
     overlay: {
       warnings: false,
       errors: true
@@ -36,7 +35,7 @@ module.exports = {
         changeOrigin: true,
       },
       "/ma": {
-        target: `http://192.168.1.3:8080`,
+        target: `http://192.168.1.15:8080`,
         changeOrigin: true,
         pathRewrite: {
           '^/ma': '/shuyike'

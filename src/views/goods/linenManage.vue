@@ -139,8 +139,8 @@
 
           <el-col style="margin-top:30px">
             <el-form-item label="上传图片">
-              <photo :list="pic" url="http://192.168.1.3:81/" @remove="removePhoto"/>
-              <upload :url="picUrl" @success="success" @remove="remove"/>
+              <photo :list="pic" url="http://192.168.1.3:81/" @remove="removePhoto" />
+              <upload :url="picUrl" @success="success" @remove="remove" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -449,8 +449,16 @@ export default {
     },
     // 获取总价
     makeAllPrice() {
-      this.info.sumPrice =
-        parseFloat(this.info.quantity) * parseFloat(this.info.onePrice);
+      if (this.info.quantity == "") {
+        this.info.sumPrice = 1 * parseFloat(this.info.onePrice);
+      }
+      if (this.info.onePrice == "") {
+        this.info.sumPrice = 1 * parseFloat(this.info.quantity);
+      }
+      if (this.info.onePrice != "" && this.info.quantity != "") {
+        this.info.sumPrice =
+          parseFloat(this.info.quantity) * parseFloat(this.info.onePrice);
+      }
     },
     //编辑方法
     edit(e) {
@@ -484,6 +492,7 @@ export default {
           }
         }
       }
+      // 复制对象
       Object.assign(this.pic, this.info.pic);
       this.info.id = e.id;
     },

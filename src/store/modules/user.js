@@ -14,6 +14,7 @@ import {
   logout
 } from "@/api/user"
 
+
 const state = {
   token: getToken(),
   name: '',
@@ -62,6 +63,7 @@ const actions = {
       })
     })
   },
+
 
   // get user info
   getInfo({
